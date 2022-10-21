@@ -43,8 +43,8 @@ class ProductsController extends Controller
             'mname' => 'required',
             'lname' => 'required',
             'gender' => 'required',
-            'contact' => 'required',
-            'email' => 'required',
+            'contact' => 'required|unique:products',
+            'email' => 'required|email|unique:products',
             'bday' => 'required',
             'bplace' => 'required',
             'address' => 'required'

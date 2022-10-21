@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add New Product</h2>
+            <h2>Add Student Application</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
@@ -47,7 +47,7 @@
           <label for="mname">Middle Name  type (none) if unavailable</label>
         </div>
         <div class="col-75">
-          <input type="text" id="mname" name="mname" value="none" placeholder="Your middle name..">
+          <input type="text" id="mname" name="mname" value="" placeholder="Your middle name..">
         </div>
     </div>
     <div class="row">
