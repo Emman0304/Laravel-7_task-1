@@ -39,9 +39,8 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fname' => 'required',
+            'name' => 'required|unique:products',
             'mname' => 'required',
-            'lname' => 'required',
             'gender' => 'required',
             'contact' => 'required|unique:products',
             'email' => 'required|email|unique:products',
@@ -88,9 +87,8 @@ class ProductsController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'fname' => 'required',
+            'name' => 'required',
             'mname' => 'required',
-            'lname' => 'required',
             'gender' => 'required',
             'contact' => 'required',
             'email' => 'required',

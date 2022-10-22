@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Product</h2>
+                <h2>Edit Student Information</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
@@ -27,20 +27,12 @@
         @csrf
         @method('PUT')
    
-        <div class="row">
-      <div class="col-25">
-        <label for="lname">Last Name</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="lname" name="lname" value="{{$product->lname}}" placeholder="Your last name..">
-      </div>
-    </div>
     <div class="row">
       <div class="col-25">
-        <label for="fname">First Name</label>
+        <label for="fname">Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="fname" value="{{$product->fname}}" placeholder="Your first name..">
+        <input type="text" id="name" name="name" value="{{$product->name}}" placeholder="Lastname, firstname">
       </div>
     </div>
     <div class="row">
@@ -107,7 +99,7 @@
     
       <div class="row">
         <center>
-          <input type="submit" value="Submit">
+          <input type="submit" value="Update">
         </center>
     </div>
    

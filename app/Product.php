@@ -7,12 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'fname', 
-        'mname',
-        'lname', 
+        'name', 
+        'mname', 
         'gender',
         'contact', 
-        'email',
         'bday', 
         'bplace',
         'email',
