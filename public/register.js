@@ -3,10 +3,7 @@ $(function(){
     if($registerForm.length){
         $registerForm.validate({
             rules:{
-               fname:{
-                required: true
-               },
-               lname:{
+               name:{
                 required: true
                },
                mname:{
@@ -27,15 +24,16 @@ $(function(){
                },
                address:{
                 required: true
+               },    
+               password:{
+                required: true
                },                                
             },
             messages:{
-                fname:{
-                    required: 'First name is required'
+                name:{
+                    required: 'Name is required'
                 },
-                lname:{
-                    required: 'Last name is required'
-                },
+                
                 mname:{
                     required: 'type (none) if unaplicable'
                 },
@@ -54,6 +52,9 @@ $(function(){
                 },
                 address:{
                     required: 'Address is required'
+                },
+                password:{
+                    required: 'Password is required'
                 }
             }
         }) 

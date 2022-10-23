@@ -46,7 +46,8 @@ class ProductsController extends Controller
             'email' => 'required|email|unique:products',
             'bday' => 'required',
             'bplace' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'password' => 'required'
         ]);
   
         Product::create($request->all());
@@ -76,6 +77,7 @@ class ProductsController extends Controller
     {
         return view('products.edit',compact('product'));
     }
+    
   
     /**
      * Update the specified resource in storage.
@@ -94,7 +96,8 @@ class ProductsController extends Controller
             'email' => 'required',
             'bday' => 'required',
             'bplace' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'password' => 'required'
         ]);
   
         $product->update($request->all());

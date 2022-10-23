@@ -4,10 +4,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add Student Application</h2>
+            <h2>Register Account</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('signin') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
     </div>
 @endif
    
-<form name="myForm" id="myForm" action="{{ route('products.store') }}" method="POST" onsubmit="return validateForm()" >
+<form name="myForm" id="myForm" action="{{ route('store') }}" method="POST" onsubmit="return validateForm()" >
 @csrf
 
     
@@ -107,7 +107,7 @@
   
       <div class="row">
         <center>
-          <input type="submit" value="Submit">
+          <input type="submit" value="Register">
         </center>
     </div>
    

@@ -81,6 +81,14 @@
         </div>
     </div>
     <div class="row">
+      <div class="col-25">
+        <label for="address">Address</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="address" name="address" value="{{$product->address}}" placeholder="Your address.">
+      </div>
+    </div><br>
+    <div class="row">
         <div class="col-25">
           <label for="email">Email</label>
         </div>
@@ -90,12 +98,13 @@
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="address">Address</label>
+        <label for="password">Password</label>
       </div>
       <div class="col-75">
-        <input type="text" id="address" name="address" value="{{$product->address}}" placeholder="Your address.">
+        <input type="password" id="password" name="password" placeholder="Password">
       </div>
-    </div><br>
+  </div><br>
+    
     
       <div class="row">
         <center>
