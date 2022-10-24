@@ -8,7 +8,6 @@ use App\Imports\UsersImport;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
-// use PDF;
 use Barryvdh\DomPDF\PDF;
   
 class ProductsController extends Controller
@@ -24,6 +23,9 @@ class ProductsController extends Controller
   
         return view('products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    public function showTable(){
+        return view('products.table');
     }
    
     /**
