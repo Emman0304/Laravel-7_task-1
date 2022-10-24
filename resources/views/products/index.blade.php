@@ -12,6 +12,7 @@
                 <div class="pull-right">
                     <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Application</a>
                     <a class="btn btn-success"  href="{{ route('export') }}"> Export Excel</a>
+                    <a class="btn btn-success"  href="{{ route('pdf') }}"> Export PDF</a>
 
                     <form action="{{route('import')}}" method="post" enctype="multipart/form-data">
                         @csrf

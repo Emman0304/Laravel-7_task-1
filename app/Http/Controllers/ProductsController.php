@@ -8,6 +8,8 @@ use App\Imports\UsersImport;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+// use PDF;
+use Barryvdh\DomPDF\PDF;
   
 class ProductsController extends Controller
 {
@@ -133,6 +135,12 @@ class ProductsController extends Controller
         
         return redirect()->route('index');
     }
+    public function downloadPDF(){
+        $students = Product::all();
+        $pdf=PDF::loadView('loginForm.signin',compact('$students'));
+        return $pdf->download('students.pdf');
+    }
+
     
 
 }

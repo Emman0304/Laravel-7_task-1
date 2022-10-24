@@ -33,6 +33,7 @@ Route::post('/posts','authController@login')->name('login');
 // Route::get('/import-form','ProductsController@importForm');
 Route::post('students/import','ProductsController@import')->name('import');
 Route::get('students/export','ProductsController@export')->name('export');
+Route::get('/download-pdf','ProductsController@downloadPDF')->name('pdf');
 
 
 
