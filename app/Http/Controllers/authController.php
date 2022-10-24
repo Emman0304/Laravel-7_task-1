@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Product;
+use Illuminate\Support\Facades\Validator;
 
 class authController extends Controller
 {
@@ -15,6 +17,7 @@ class authController extends Controller
     {
         return view('loginForm.signin');
     }
+    
     public function store(Request $request)
     {
         // $users= new Product;
@@ -46,9 +49,24 @@ class authController extends Controller
   
         Product::create($request->all());
    
-        return redirect()->route('index')
+        return redirect()->route('signin')
                         ->with('success','Registered successfully.');
 
 
     }
-}
+    public function login(Request $r){
+
+       $email=$r->email;
+       $password=$r->password;
+
+    //    $conn = select('select * from users where name = '$email' and password = '$password') ;
+       $conn = DB::table('products')->where('email', $email);
+        
+       if ($conn) {
+            echo "Acc registered";
+        }else{
+            echo "Acc not registered";
+        }
+    } 
+        
+}   

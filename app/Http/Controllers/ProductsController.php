@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
   
 use App\Product;
 use Illuminate\Http\Request;
+use App\Imports\UsersImport;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
   
 class ProductsController extends Controller
 {
@@ -102,7 +106,7 @@ class ProductsController extends Controller
   
         $product->update($request->all());
   
-        return redirect()->route('products.index')
+        return redirect()->route('index')
                         ->with('success','Student info updated successfully');
     }
   
@@ -119,4 +123,16 @@ class ProductsController extends Controller
         return redirect()->route('products.index')
                         ->with('success','Student info deleted successfully');
     }
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'students.xlsx');
+    }
+    public function import(Request $request) 
+    {
+        Excel::import(new UsersImport, $request->file);
+        
+        return redirect()->route('index');
+    }
+    
+
 }

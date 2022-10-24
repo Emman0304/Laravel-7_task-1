@@ -27,6 +27,12 @@ Route::get('/index','ProductsController@index')->name('index');
 
 Route::post('/register','authController@store')->name('store');
 
+Route::get('/posts','authController@login')->name('login');
+Route::post('/posts','authController@login')->name('login'); 
+
+// Route::get('/import-form','ProductsController@importForm');
+Route::post('students/import','ProductsController@import')->name('import');
+Route::get('students/export','ProductsController@export')->name('export');
 
 
 

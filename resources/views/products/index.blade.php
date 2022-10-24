@@ -1,15 +1,36 @@
 @extends('products.layout')
  
 @section('content')
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <br>
                 <h2>STUDENT APPLICATION FORM</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Application</a>
-            </div>
+            
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Application</a>
+                    <a class="btn btn-success"  href="{{ route('export') }}"> Export Excel</a>
+
+                    <form action="{{route('import')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <!-- <div class="row">
+                            <div class="col-md-6 offset-md-3 ">
+                                <div class="form-group"> -->
+                                    <label for="file">Choose File</label>
+                                    <input type="file" name="file" class="form-control" >
+                                <!-- </div> -->
+                                <button type="submit" >Import Excel File</button>
+                            <!-- </div>
+                        </div> -->
+                    </form>
+
+                </div>
+            
+                
+            
+            
         </div>
     </div><br>
    
@@ -18,6 +39,9 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+
+   
+
    <div style="overflow-x:auto;" >
         <table class="table table-bordered">
             <tr>
