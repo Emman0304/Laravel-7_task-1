@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\authController;
-use App\Http\Controllers\PDFexportCon;
-use App\Http\Controllers\tableController;
+use App\Http\Controllers\HomeController;
 
-use App\Http\Controllers\ProductsController;
+// use App\Http\Controllers\PDFexportCon;
+// use App\Http\Controllers\authController;
+// use App\Http\Controllers\tableController;
+// use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,24 +22,30 @@ use App\Http\Controllers\ProductsController;
 
 
 Route::get('/', function () {
-    return view('loginForm.signin');
+    
+    return view('welcome');
 });
 
 Route::resource('products','ProductsController');
 
-Route::get('/table','tableController@display')->name('table');
-Route::get('/signup','authController@signUp')->name('signup');
-Route::get('/signin','authController@signin')->name('signin');
-Route::get('/index','ProductsController@index')->name('index');
-Route::post('/register','authController@store')->name('store');
-Route::get('/posts','authController@login')->name('login');
-Route::post('/posts','authController@login')->name('login'); 
-Route::post('students/import','ProductsController@import')->name('import');
-Route::get('students/export','ProductsController@export')->name('export');
-Route::get('generate-pdf','PDFexportCon@generatePDF')->name('pdf');
+
+Route::get('/signup','HomeController@signUp')->name('signup');
+Route::get('/signin','HomeController@signin')->name('signin');
+Route::get('/index','HomeController@indexTable')->name('index');
+Route::post('/register','HomeController@storeSignup')->name('store');
+Route::get('/posts','HomeController@login')->name('login');
+Route::post('/posts','HomeController@login')->name('login'); 
+Route::post('students/import','HomeController@import')->name('import');
+Route::get('students/export','HomeController@export')->name('export');
+Route::get('generate-pdf','HomeController@generatePDF')->name('pdf');
+Route::get('/table','HomeController@display')->name('table');
 
 
 
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

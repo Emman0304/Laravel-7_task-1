@@ -20,20 +20,6 @@ class authController extends Controller
     
     public function store(Request $request)
     {
-        // $users= new Product;
-
-        // $users->name=$request->name;
-        // $users->mname=$request->mname;
-        // $users->gender=$request->gender;
-        // $users->bday=$request->bday;
-        // $users->bplace=$request->bplace;
-        // $users->contact=$request->contact;
-        // $users->address=$request->address;
-        // $users->email=$request->email;
-        // $users->password=$request->password;
-
-        // $users->save();
-        // return view('');
 
         $request->validate([
             'name' => 'required|unique:products',

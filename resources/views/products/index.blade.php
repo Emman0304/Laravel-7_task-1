@@ -13,6 +13,7 @@
                     <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Application</a>
                     <a class="btn btn-success"  href="{{ route('export') }}"> Export Excel</a>
                     <a class="btn btn-success"  href="{{ route('pdf') }}"> Export PDF</a>
+                    <a class="btn btn-danger"  href="{{ route('home') }}"> HOME</a>
 
                     <form action="{{route('import')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -22,7 +23,7 @@
                                     <label for="file">Choose File</label>
                                     <input type="file" name="file" class="form-control" >
                                 <!-- </div> -->
-                                <button type="submit" >Import Excel File</button>
+                                <button type="submit" class="btn btn-primary" style="margin-top: 3px" >Import Excel File</button>
                             <!-- </div>
                         </div> -->
                     </form>
