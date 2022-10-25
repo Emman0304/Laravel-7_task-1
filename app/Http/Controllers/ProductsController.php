@@ -55,7 +55,7 @@ class ProductsController extends Controller
             'bday' => 'required',
             'bplace' => 'required',
             'address' => 'required',
-            'password' => 'required'
+            
         ]);
   
         Product::create($request->all());
@@ -105,7 +105,7 @@ class ProductsController extends Controller
             'bday' => 'required',
             'bplace' => 'required',
             'address' => 'required',
-            'password' => 'required'
+            
         ]);
   
         $product->update($request->all());

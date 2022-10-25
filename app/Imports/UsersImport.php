@@ -21,9 +21,8 @@ class UsersImport implements ToModel
            'bday'     => $row[3], 
            'bplace'   => $row[4],
            'contact'  => $row[5], 
-           'address'  => $row[6],
-           'email'    => $row[7],  
-           'password' => $row[8]
+           'email'    => $row[6],
+           'address'  => $row[7]
         ]);
     }
 }

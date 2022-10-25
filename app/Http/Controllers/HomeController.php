@@ -74,8 +74,8 @@ class HomeController extends Controller
             'email' => 'required|email|unique:products',
             'bday' => 'required',
             'bplace' => 'required',
-            'address' => 'required',
-            'password' => 'required'
+            'address' => 'required'
+            
         ]);
   
         Product::create($request->all());
@@ -124,8 +124,8 @@ class HomeController extends Controller
             'email' => 'required',
             'bday' => 'required',
             'bplace' => 'required',
-            'address' => 'required',
-            'password' => 'required'
+            'address' => 'required'
+            
         ]);
   
         $product->update($request->all());
@@ -178,8 +178,8 @@ public function storeSignup(Request $request)
         'email' => 'required|email|unique:products',
         'bday' => 'required',
         'bplace' => 'required',
-        'address' => 'required',
-        'password' => 'required',
+        'address' => 'required'
+        
     ]);
 
     Product::create($request->all());

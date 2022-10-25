@@ -15,7 +15,6 @@ class Product extends Model
         'contact',
         'address',
         'email',
-        'password'
     ];
 
     

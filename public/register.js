@@ -25,9 +25,7 @@ $(function(){
                address:{
                 required: true
                },    
-               password:{
-                required: true
-               },                                
+                                               
             },
             messages:{
                 name:{
@@ -53,9 +51,7 @@ $(function(){
                 address:{
                     required: 'Address is required'
                 },
-                password:{
-                    required: 'Password is required'
-                }
+                
             }
         }) 
     }
