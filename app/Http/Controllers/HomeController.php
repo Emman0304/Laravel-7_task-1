@@ -117,6 +117,19 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'name' => 'required | unique:products,name,'.$id,
+            'mname' => 'required',
+            'gender' => 'required',
+            'contact' => 'required | unique:products,contact,'.$id,
+            'email' => 'required |email| unique:products,email,'.$id,
+            'bday' => 'required',
+            'bplace' => 'required',
+            'address' => 'required'
+            
+        ]);
+
         $data=array();
             $data['name']=$request->name;
             $data['mname']=$request->mname;
