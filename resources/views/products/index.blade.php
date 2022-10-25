@@ -13,14 +13,13 @@
                     <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Application</a>
                     <a class="btn btn-success"  href="{{ route('export') }}"> Export Excel</a>
                     <a class="btn btn-success"  href="{{ route('pdf') }}"> Export PDF</a>
-                    <a class="btn btn-danger"  href="{{ route('home') }}"> HOME</a>
+                    <a class="btn btn-danger"  href="{{ route('home') }}"> HOME</a><br><br>
 
                     <form action="{{route('import')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <!-- <div class="row">
                             <div class="col-md-6 offset-md-3 ">
                                 <div class="form-group"> -->
-                                    <label for="file">Choose File</label>
                                     <input type="file" name="file" class="form-control" >
                                 <!-- </div> -->
                                 <button type="submit" class="btn btn-primary" style="margin-top: 3px" >Import Excel File</button>
