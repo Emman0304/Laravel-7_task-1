@@ -23,16 +23,16 @@
         </div>
     @endif
   
-    <form id="myForm" action="{{ route('products.update',$product->id) }}" method="POST" onsubmit="return validateForm()" >
+    <form id="myForm" action="{{URL::to('update/student/'.$student->id)}}" method="POST" onsubmit="return validateForm()" >
         @csrf
-        @method('PUT')
+        <!-- @method('PUT') -->
    
     <div class="row">
       <div class="col-25">
         <label for="fname">Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="name" name="name" value="{{$product->name}}" placeholder="Lastname, firstname">
+        <input type="text" id="name" name="name" value="{{$student->name}}" placeholder="Lastname, firstname">
       </div>
     </div>
     <div class="row">
@@ -40,7 +40,7 @@
           <label for="mname">Middle Name  type (none) if unavailable</label>
         </div>
         <div class="col-75">
-          <input type="text" id="mname" name="mname" value="{{$product->mname}}" placeholder="Your middle name..">
+          <input type="text" id="mname" name="mname" value="{{$student->mname}}" placeholder="Your middle name..">
         </div>
     </div>
     <div class="row">
@@ -48,7 +48,7 @@
           <label for="gender">Gender</label>
         </div>
         <div class="col-75">
-            <select id="gender" name="gender" value="{{$product->gender}}" >
+            <select id="gender" name="gender" value="{{$student->gender}}" >
               <option value="Other">Other</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -61,7 +61,7 @@
           <label for="bday">Birthday</label>
         </div>
         <div class="col-75">
-          <input type="text" id="bday" name="bday" value="{{$product->bday}}" placeholder="dd/mm/YYYY.">
+          <input type="text" id="bday" name="bday" value="{{$student->bday}}" placeholder="dd/mm/YYYY.">
         </div>
       </div>
     <div class="row">
@@ -69,7 +69,7 @@
           <label for="bplace">Birtplace</label>
         </div>
         <div class="col-75">
-          <input type="text" id="bplace" name="bplace" value="{{$product->bplace}}" placeholder="Your birthplace.">
+          <input type="text" id="bplace" name="bplace" value="{{$student->bplace}}" placeholder="Your birthplace.">
         </div>
     </div>
     <div class="row">
@@ -77,7 +77,7 @@
           <label for="bplace">Contact</label>
         </div>
         <div class="col-75">
-          <input type="number" id="contact" name="contact" value="{{$product->contact}}" placeholder="Your contact #">
+          <input type="number" id="contact" name="contact" value="{{$student->contact}}" placeholder="Your contact #">
         </div>
     </div>
     <div class="row">
@@ -85,7 +85,7 @@
         <label for="address">Address</label>
       </div>
       <div class="col-75">
-        <input type="text" id="address" name="address" value="{{$product->address}}" placeholder="Your address.">
+        <input type="text" id="address" name="address" value="{{$student->address}}" placeholder="Your address.">
       </div>
     </div><br>
     <div class="row">
@@ -93,7 +93,7 @@
           <label for="email">Email</label>
         </div>
         <div class="col-75">
-          <input type="text" id="email" name="email" value="{{$product->email}}" placeholder="Your email">
+          <input type="text" id="email" name="email" value="{{$student->email}}" placeholder="Your email">
         </div>
     </div><br>
     

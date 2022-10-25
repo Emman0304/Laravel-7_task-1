@@ -80,7 +80,7 @@ class HomeController extends Controller
   
         Product::create($request->all());
    
-        return redirect()->route('products.index')
+        return redirect()->route('index')
                         ->with('success','Student info created successfully.');
     }
    
@@ -101,9 +101,10 @@ class HomeController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
-    {
-        return view('products.edit',compact('product'));
+
+    Public function edit($id){
+        $student=DB::table('products')->where('id',$id)->first();
+        return view('products.edit',compact('student'));
     }
     
   
@@ -114,91 +115,90 @@ class HomeController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'mname' => 'required',
-            'gender' => 'required',
-            'contact' => 'required',
-            'email' => 'required',
-            'bday' => 'required',
-            'bplace' => 'required',
-            'address' => 'required'
-            
-        ]);
-  
-        $product->update($request->all());
+        $data=array();
+            $data['name']=$request->name;
+            $data['mname']=$request->mname;
+            $data['gender']=$request->gender;
+            $data['bday']=$request->bday;
+            $data['bplace']=$request->bplace;
+            $data['contact']=$request->contact;
+            $data['email']=$request->email;
+            $data['address']=$request->address;
+
+            $prod=DB::table('products')->where('id',$id)->update($data);
   
         return redirect()->route('index')
                         ->with('success','Student info updated successfully');
-    }
-  
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
-    {
-        $product->delete();
-  
-        return redirect()->route('products.index')
-                        ->with('success','Student info deleted successfully');
-    }
-    public function export() 
-    {
-        return Excel::download(new UsersExport, 'students.xlsx');
-    }
-    public function import(Request $request) 
-    {
-        Excel::import(new UsersImport, $request->file);
-        
-        return redirect()->route('index');
+        }
     
-}
-public function signUp()
-{
-    return view('loginForm.signUp');
-}
-public function signIn()
-{
-    return view('loginForm.signin');
-}
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  \App\Product  $product
+         * @return \Illuminate\Http\Response
+         */
+        public function destroy($id)
+        {
+            $data = DB::table('products')->where('id',$id)->first(); 
+            $dataDel = DB::table('products')->where('id',$id)->delete(); 
 
-public function storeSignup(Request $request)
-{
-
-    $request->validate([
-        'name' => 'required|unique:products',
-        'mname' => 'required',
-        'gender' => 'required',
-        'contact' => 'required|unique:products',
-        'email' => 'required|email|unique:products',
-        'bday' => 'required',
-        'bplace' => 'required',
-        'address' => 'required'
+            return redirect()->route('index')
+                            ->with('success','Student info deleted successfully');
+        }
+        public function export() 
+        {
+            return Excel::download(new UsersExport, 'students.xlsx');
+        }
+        public function import(Request $request) 
+        {
+            Excel::import(new UsersImport, $request->file);
+            
+            return redirect()->route('index');
         
-    ]);
+        }
+        public function signUp()
+        {
+            return view('loginForm.signUp');
+        }
+        public function signIn()
+        {
+            return view('loginForm.signin');
+        }
 
-    Product::create($request->all());
+        public function storeSignup(Request $request)
+        {
 
-    return redirect()->route('signin')
-                    ->with('success','Registered successfully.');
+            $request->validate([
+                'name' => 'required|unique:products',
+                'mname' => 'required',
+                'gender' => 'required',
+                'contact' => 'required|unique:products',
+                'email' => 'required|email|unique:products',
+                'bday' => 'required',
+                'bplace' => 'required',
+                'address' => 'required'
+                
+            ]);
+
+            Product::create($request->all());
+
+            return redirect()->route('signin')
+                            ->with('success','Registered successfully.');
 
 
+        }
+        public function generatePDF()
+        {
+            $students = Product::all();
+            $pdf = PDF::loadView('table',compact('students'));
+            return $pdf->download('students.pdf');
+        }
+        public function display (){
+
+            $students = Product::all();
+
+            return view('table',compact('students'));
+        }
     }
-    public function generatePDF()
-    {
-        $students = Product::all();
-        $pdf = PDF::loadView('table',compact('students'));
-        return $pdf->download('students.pdf');
-    }
-    public function display (){
-
-        $students = Product::all();
-
-        return view('table',compact('students'));
-    }
-}

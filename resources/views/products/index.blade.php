@@ -7,13 +7,24 @@
             <div class="pull-left">
                 <br>
                 <h2>STUDENT APPLICATION FORM</h2>
+                
             </div>
             
                 <div class="pull-right">
-                    <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Application</a>
+                    <a class="btn btn-success" href="{{ route('create') }}"> Create New Application</a>
                     <a class="btn btn-success"  href="{{ route('export') }}"> Export Excel</a>
                     <a class="btn btn-success"  href="{{ route('pdf') }}"> Export PDF</a>
-                    <a class="btn btn-danger"  href="{{ route('home') }}"> HOME</a><br><br>
+                    <!-- <a class="btn btn-danger"  href="{{ route('home') }}"> HOME</a><br><br> -->
+
+                    <a class="btn btn-danger" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a><br><br>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
 
                     <form action="{{route('import')}}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -28,6 +39,7 @@
                     </form>
 
                 </div>
+                
             
                 
             
@@ -71,20 +83,15 @@
                 <td>{{ $product->email }}</td>
                 <td>{{ $product->address }}</td>
                 <td>
-                        <form name="myForm" id="myForm" onsubmit="return validateForm()" action="{{ route('products.destroy',$product->id) }}" method="POST">
-    
-                        <!-- <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a> -->
+                        
                             <center>
-                               <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
-    
-                            @csrf
-                            @method('DELETE')
-            
-                            <button type="submit" class="btn btn-danger">Delete</button> 
+                               <a class="btn btn-primary" href="{{URL::to('edit/student/'.$product->id)}}">Edit</a>
+                               <a class="btn btn-danger" href="{{URL::to('delete/student/'.$product->id)}}" onclick="return confirm('confirm delete?')" >Delete</a>
+ 
                             </center>
                             
                         
-                    </form>
+                    
                     
                 </td>
             </tr>
