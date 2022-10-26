@@ -43,9 +43,7 @@
     <table id="customers">
       
         <tr>
-          <th>Last Name</th>
-          <th>First Name</th>
-          <th>M.I.</th>
+          <th>Full Name</th>
           <th>Age</th>
           <th>Gender</th>
           <th>Birthday</th>
@@ -56,11 +54,15 @@
           
         </tr>
         @foreach ($students as $item )
+          <?php
+            $mi=$item -> mname;
+            if ($mi == "none") {
+              $mi="";
+            }
+          ?>
           <tr>
           
-          <td>{{ $item -> lastname }}</td>
-          <td>{{ $item -> firstname }}</td>
-          <td>{{ $item -> mname }}</td>
+          <td>{{ $item -> firstname }} {{ $mi }} {{ $item -> lastname }}</td>
           <td>{{ $item -> age }}</td>
           <td>{{ $item -> gender }}</td>
           <td>{{ $item -> bday }}</td>

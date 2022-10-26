@@ -70,6 +70,7 @@ class HomeController extends Controller
         $request->validate([
             'firstname'  => 'required',
             'lastname' => 'required',
+            'age' => 'required',
             'mname' => 'required',
             'gender' => 'required',
             'contact' => 'required|unique:products',
@@ -79,6 +80,7 @@ class HomeController extends Controller
             'address' => 'required'
             
         ]);
+        
  
         Product::create($request->all());
    
@@ -124,6 +126,7 @@ class HomeController extends Controller
             'firstname' => 'required', 
             'lastname' => 'required',
             'mname' => 'required',
+            'age' => 'required',
             'gender' => 'required',
             'contact' => 'required | unique:products,contact,'.$id,
             'email' => 'required |email| unique:products,email,'.$id,
@@ -138,6 +141,7 @@ class HomeController extends Controller
             $data['lastname']=$request->lastname;
             $data['mname']=$request->mname;
             $data['gender']=$request->gender;
+            $data['age']=$request->age;
             $data['bday']=$request->bday;
             $data['bplace']=$request->bplace;
             $data['contact']=$request->contact;
@@ -168,7 +172,7 @@ class HomeController extends Controller
         {
             return Excel::download(new UsersExport, 'students.xlsx');
         }
-        public function import(Request $request) 
+        public function import(Request $request)  
         {
             // Excel::import(new UsersImport, $request->file);
             $file=$request->file('file')->store('import');

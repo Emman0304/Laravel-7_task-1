@@ -9,6 +9,9 @@ $(function(){
                 lastname:{
                     required: true
                 },
+                age:{
+                    required: true
+                },
                 mname:{
                     required: true
                 },
@@ -43,6 +46,9 @@ $(function(){
                 },
                 bday:{
                     required: 'Birth date is required'
+                },
+                age:{
+                    required: 'Age is required'
                 },
                 bplace:{
                     required: 'Birth place is required'

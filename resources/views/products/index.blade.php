@@ -67,19 +67,21 @@
                 <th>Value</th>
             </tr>
             @foreach (session()->get('failures') as $validation )
-                <td>{{ $validation->row() }}</td>
-                <td>{{ $validation->attribute() }}</td>
-                <td>
-                    <ul>
-                        @foreach ($validation->errors() as $e )
-                        
-                            <li>{{ $e }}</li>
-                        @endforeach
-                    </ul>
-                </td>
-                <td>
-                    {{ $validation->values()[$validation->attribute()] }}
-                </td>
+                <tr>
+                    <td>{{ $validation->row() }}</td>
+                    <td>{{ $validation->attribute() }}</td>
+                    <td>
+                        <ul>
+                            @foreach ($validation->errors() as $e )
+                                <li>{{ $e }}</li>
+                            @endforeach
+                        </ul>
+                    </td>
+                    <td>
+                        {{ $validation->values()[$validation->attribute()] }}
+                    </td>
+                </tr>
+                
             @endforeach
         </table>
     @endif

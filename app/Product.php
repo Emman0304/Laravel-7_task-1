@@ -11,6 +11,7 @@ class Product extends Model
         'lastname',
         'mname',
         'gender',
+        'age',
         'bday',
         'bplace',
         'contact',

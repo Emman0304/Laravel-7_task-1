@@ -1,0 +1,20 @@
+Age-additional input *
+	Auto compute when set bday
+
+PDF export ---------------------------------------DONE
+	fname,lname, mname combine *
+		export dpnding on assigned in task *
+
+excel export
+	has heading
+	fname,lname, mname combine
+	export dpnding on assigned in task
+
+contact------------------------------------------DONE
+	max 11 char *
+	
+name
+	min 2 char *
+	exclude epecial char
+		jquery
+

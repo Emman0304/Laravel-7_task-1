@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('mname');
+            $table->string('age');
             $table->string('gender');
             $table->string('bday');
             $table->string('bplace');

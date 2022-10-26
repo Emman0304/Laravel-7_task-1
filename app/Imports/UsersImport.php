@@ -34,6 +34,7 @@ class UsersImport implements
            'lastname' => $row["lastname"],
            'firstname'=> $row["firstname"],
            'mname'    => $row["mi"],
+           'age'      => $row["age"],
            'gender'   => $row["gender"],
            'bday'     => $row["birthdate"], 
            'bplace'   => $row["birthplace"],

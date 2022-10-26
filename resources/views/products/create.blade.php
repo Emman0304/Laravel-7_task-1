@@ -32,7 +32,7 @@
         <label for="firstname">First Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="firstname" name="firstname" placeholder="Firstname">
+        <input type="text" id="firstname" name="firstname" placeholder="Firstname" minlength="3" maxlength="5">
       </div>
     </div>
     <div class="row">
@@ -40,7 +40,7 @@
         <label for="lastname">Last Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lastname" name="lastname" placeholder="Lastname">
+        <input type="text" id="lastname" name="lastname" placeholder="Lastname" minlength="2" maxlength="50" >
       </div>
     </div>
     <div class="row">
@@ -48,7 +48,7 @@
           <label for="mname">Middle Name  type (none) if unavailable</label>
         </div>
         <div class="col-75">
-          <input type="text" id="mname" name="mname" value="" placeholder="Your middle name..">
+          <input type="text" id="mname" name="mname" value="" placeholder="Your middle name.." minlength="1" maxlength="30" >
         </div>
     </div>
     <div class="row">
@@ -94,7 +94,7 @@
           <label for="bplace">Contact</label>
         </div>
         <div class="col-75">
-          <input type="number" id="contact" name="contact" placeholder="Your contact #">
+          <input type="number" id="contact" name="contact" placeholder="09xxxxxxxx" maxlength="11" >
         </div>
     </div>
     <div class="row">
