@@ -72,6 +72,14 @@
           <input type="date" id="myDate" name="bday"  value="" >
         </div>
       </div>
+      <div class="row">
+      <div class="col-25">
+        <label for="age">Age</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="age" name="age" placeholder="Your age." style="width: 50%" >
+      </div>
+    </div>
     <div class="row">
         <div class="col-25">
           <label for="bplace">Birtplace</label>
@@ -80,6 +88,7 @@
           <input type="text" id="bplace" name="bplace" placeholder="Your birthplace.">
         </div>
     </div>
+    
     <div class="row">
         <div class="col-25">
           <label for="bplace">Contact</label>

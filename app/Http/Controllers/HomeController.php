@@ -175,11 +175,11 @@ class HomeController extends Controller
 
             $import=new UsersImport;
             $import->import($file);
-            dd($import->failures());
+            // dd($import->failures());
             
-            // if ($import->failures()->isNotEmpty()) {
-            //     return back()->withFailures($import->failures());
-            // }
+            if ($import->failures()->isNotEmpty()) {
+                return redirect()->route('index')->withFailures($import->failures());
+            }
 
             return redirect()->route('index')->with('success','Excel imported successfully');
         

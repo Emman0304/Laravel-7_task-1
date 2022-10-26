@@ -69,9 +69,18 @@
           <label for="bday">Birthday</label>
         </div>
         <div class="col-75">
-          <input type="date" id="myDate" name="bday"  value="{{$student->bday}}" >
+          <input type="date" id="myDate" name="bday"  value="{{$student->bday}}">
         </div>
       </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="age">Age</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="age" name="age"  value="{{$student->age}}" style="width: 50%" >
+        </div>
+      </div>
+      
     <div class="row">
         <div class="col-25">
           <label for="bplace">Birtplace</label>

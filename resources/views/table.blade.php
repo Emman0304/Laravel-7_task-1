@@ -46,6 +46,7 @@
           <th>Last Name</th>
           <th>First Name</th>
           <th>M.I.</th>
+          <th>Age</th>
           <th>Gender</th>
           <th>Birthday</th>
           <th>Birthplace</th>
@@ -60,6 +61,7 @@
           <td>{{ $item -> lastname }}</td>
           <td>{{ $item -> firstname }}</td>
           <td>{{ $item -> mname }}</td>
+          <td>{{ $item -> age }}</td>
           <td>{{ $item -> gender }}</td>
           <td>{{ $item -> bday }}</td>
           <td>{{ $item -> bplace }}</td>

@@ -58,7 +58,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    {{-- @if (session()->has('failures'))
+    @if (session()->has('failures'))
         <table class="table table-danger" > 
             <tr>
                 <th>Row</th>
@@ -71,7 +71,8 @@
                 <td>{{ $validation->attribute() }}</td>
                 <td>
                     <ul>
-                        @foreach ($validatio->$errors as $e )
+                        @foreach ($validation->errors() as $e )
+                        
                             <li>{{ $e }}</li>
                         @endforeach
                     </ul>
@@ -81,7 +82,7 @@
                 </td>
             @endforeach
         </table>
-    @endif --}}
+    @endif
 
    <div style="overflow-x:auto;" >
         <table class="table table-bordered">
@@ -90,6 +91,7 @@
                 <th>Last Name</th>
                 <th>First Name</th>
                 <th>M.I.</th>
+                <th>Age</th>
                 <th>gender</th>
                 <th>birthday</th>
                 <th>Birth Place</th>
@@ -106,6 +108,7 @@
                 <td>{{ $product->lastname }}</td>
                 <td>{{ $product->firstname }}</td>
                 <td>{{ $product->mname }}</td>
+                <td>{{ $product->age }}</td>
                 <td>{{ $product->gender }}</td>
                 <td>{{ $product->bday }}</td>
                 <td>{{ $product->bplace }}</td>
