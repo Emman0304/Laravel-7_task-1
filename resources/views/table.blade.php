@@ -43,7 +43,8 @@
     <table id="customers">
       
         <tr>
-          <th>Name</th>
+          <th>Last Name</th>
+          <th>First Name</th>
           <th>M.I.</th>
           <th>Gender</th>
           <th>Birthday</th>
@@ -56,7 +57,8 @@
         @foreach ($students as $item )
           <tr>
           
-          <td>{{ $item -> name }}</td>
+          <td>{{ $item -> lastname }}</td>
+          <td>{{ $item -> firstname }}</td>
           <td>{{ $item -> mname }}</td>
           <td>{{ $item -> gender }}</td>
           <td>{{ $item -> bday }}</td>

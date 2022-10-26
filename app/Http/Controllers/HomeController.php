@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Validation\Rule;
 
 
 
@@ -67,7 +68,8 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:products',
+            'firstname'  => 'required',
+            'lastname' => 'required',
             'mname' => 'required',
             'gender' => 'required',
             'contact' => 'required|unique:products',
@@ -77,7 +79,7 @@ class HomeController extends Controller
             'address' => 'required'
             
         ]);
-  
+ 
         Product::create($request->all());
    
         return redirect()->route('index')
@@ -119,7 +121,8 @@ class HomeController extends Controller
     {
 
         $request->validate([
-            'name' => 'required | unique:products,name,'.$id,
+            'firstname' => 'required', 
+            'lastname' => 'required',
             'mname' => 'required',
             'gender' => 'required',
             'contact' => 'required | unique:products,contact,'.$id,
@@ -131,7 +134,8 @@ class HomeController extends Controller
         ]);
 
         $data=array();
-            $data['name']=$request->name;
+            $data['firstname']=$request->firstname;
+            $data['lastname']=$request->lastname;
             $data['mname']=$request->mname;
             $data['gender']=$request->gender;
             $data['bday']=$request->bday;
@@ -166,9 +170,18 @@ class HomeController extends Controller
         }
         public function import(Request $request) 
         {
-            Excel::import(new UsersImport, $request->file);
+            // Excel::import(new UsersImport, $request->file);
+            $file=$request->file('file')->store('import');
+
+            $import=new UsersImport;
+            $import->import($file);
+            dd($import->failures());
             
-            return redirect()->route('index');
+            // if ($import->failures()->isNotEmpty()) {
+            //     return back()->withFailures($import->failures());
+            // }
+
+            return redirect()->route('index')->with('success','Excel imported successfully');
         
         }
         public function signUp()

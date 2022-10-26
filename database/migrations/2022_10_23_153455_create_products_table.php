@@ -15,7 +15,8 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('lastname');
             $table->string('mname');
             $table->string('gender');
             $table->string('bday');
@@ -23,7 +24,6 @@ class CreateProductsTable extends Migration
             $table->string('contact');
             $table->string('email');
             $table->string('address');
-            $table->string('password');
             $table->timestamps();
         });
     }

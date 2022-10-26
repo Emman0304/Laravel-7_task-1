@@ -29,10 +29,18 @@
     
     <div class="row">
       <div class="col-25">
-        <label for="fname">Name</label>
+        <label for="firstname">First Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="name" name="name" placeholder="Lastname, firstname">
+        <input type="text" id="firstname" name="firstname" placeholder="Firstname">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lastname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lastname" name="lastname" placeholder="Lastname">
       </div>
     </div>
     <div class="row">
@@ -61,7 +69,7 @@
           <label for="bday">Birthday</label>
         </div>
         <div class="col-75">
-          <input type="text" id="bday" name="bday" placeholder="dd/mm/YYYY.">
+          <input type="date" id="myDate" name="bday"  value="" >
         </div>
       </div>
     <div class="row">
@@ -99,7 +107,7 @@
   
       <div class="row">
         <center>
-          <input type="submit" value="Submit">
+          <input type="submit" value="Submit" >
         </center>
     </div>
    

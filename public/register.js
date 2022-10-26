@@ -3,33 +3,39 @@ $(function(){
     if($registerForm.length){
         $registerForm.validate({
             rules:{
-               name:{
-                required: true
-               },
-               mname:{
-                required: true
-               },
-               bday:{
-                required: true
-               },
-               bplace:{
-                required: true
-               },
-               contact:{
-                required: true
-               },
-               email:{
-                required: true,
-                email: true
-               },
-               address:{
-                required: true
-               },    
+               firstname:{
+                    required: true
+                   },
+                lastname:{
+                    required: true
+                },
+                mname:{
+                    required: true
+                },
+                bday:{
+                    required: true
+                },
+                bplace:{
+                    required: true
+                },
+                contact:{
+                    required: true
+                },
+                email:{
+                    required: true,
+                    email: true
+                },
+                address:{
+                    required: true
+                },    
                                                
             },
             messages:{
-                name:{
-                    required: 'Name is required'
+                firstname:{
+                    required: 'First name is required'
+                },
+                lastname:{
+                    required: 'Last name is required'
                 },
                 
                 mname:{

@@ -36,14 +36,20 @@
                                 <button type="submit" class="btn btn-primary" style="margin-top: 3px" >Import Excel File</button>
                             <!-- </div>
                         </div> -->
+                        {{-- @if ($validations->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($validations->all() as $validation)
+                                        <li>{{ $validation }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif --}}
+
                     </form>
 
                 </div>
-                
-            
-                
-            
-            
         </div>
     </div><br>
    
@@ -52,14 +58,37 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
-   
+    {{-- @if (session()->has('failures'))
+        <table class="table table-danger" > 
+            <tr>
+                <th>Row</th>
+                <th>Attribute</th>
+                <th>validations</th>
+                <th>Value</th>
+            </tr>
+            @foreach (session()->get('failures') as $validation )
+                <td>{{ $validation->row() }}</td>
+                <td>{{ $validation->attribute() }}</td>
+                <td>
+                    <ul>
+                        @foreach ($validatio->$errors as $e )
+                            <li>{{ $e }}</li>
+                        @endforeach
+                    </ul>
+                </td>
+                <td>
+                    {{ $validation->values()[$validation->attribute()] }}
+                </td>
+            @endforeach
+        </table>
+    @endif --}}
 
    <div style="overflow-x:auto;" >
         <table class="table table-bordered">
             <tr>
                 <th>No</th>
-                <th>Name</th>
+                <th>Last Name</th>
+                <th>First Name</th>
                 <th>M.I.</th>
                 <th>gender</th>
                 <th>birthday</th>
@@ -74,7 +103,8 @@
             <tr>
                 <!-- <td>{{ ++$i }}</td> -->
                 <td>{{ $product->id }}</td>
-                <td>{{ $product->name }}</td>
+                <td>{{ $product->lastname }}</td>
+                <td>{{ $product->firstname }}</td>
                 <td>{{ $product->mname }}</td>
                 <td>{{ $product->gender }}</td>
                 <td>{{ $product->bday }}</td>
@@ -90,9 +120,6 @@
  
                             </center>
                             
-                        
-                    
-                    
                 </td>
             </tr>
             @endforeach
