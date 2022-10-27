@@ -24,7 +24,7 @@ class Product extends Model
     ];
 
     public static function getStudents(){
-        $records= DB::table('products')->select('firstname','lastname','mname','age','gender','bday','bplace','contact','email','address')->orderBy('id','asc')->get()->toArray();
+        $records= DB::table('products')->select('lastname','firstname','mname','age','gender','bday','bplace','contact','email','address')->orderBy('id','asc')->get()->toArray();
         return $records;
     }
     
