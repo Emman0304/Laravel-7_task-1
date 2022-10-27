@@ -72,7 +72,7 @@
           <label for="bday">Birthday</label>
         </div>
         <div class="col-75">
-          <input type="date" id="myDate" name="bday"  value="{{$student->bday}}">
+          <input  type="text" class="bday" id="bday" name="bday"  value="{{$student->bday}}">
         </div>
       </div>
       <div class="row">

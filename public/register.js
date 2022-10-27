@@ -1,5 +1,18 @@
 $(function(){
    var $registerForm = $("#myForm");
+
+   
+    $("#bday").datepicker({
+    onSelect: function(value, ui) {
+        var today = new Date(),
+            Myage = today.getFullYear() - ui.selectedYear;
+        $('#age').val(Myage);
+    },
+       
+    dateFormat: 'dd-mm-yy',changeMonth: true,changeYear: true,yearRange:"c-100:c+0"
+    
+});
+
     if($registerForm.length){
         $registerForm.validate({
             rules:{
@@ -41,9 +54,6 @@ $(function(){
                     required: 'Last name is required'
                 },
                 mname:{
-                    required: 'Middle name is required'
-                },
-                age:{
                     required: 'type (none) if unaplicable'
                 },
                 bday:{
@@ -99,7 +109,7 @@ $(function(){
         });
 
         function check_fname() {
-            var pattern = /^[a-zA-Z]*$/;
+            var pattern = /^[a-zA-Z\s]+$/;
             var fname = $("#firstname").val();
             if (pattern.test(fname) && fname !== '') {
             $("#fname_error_message").hide();
@@ -112,7 +122,7 @@ $(function(){
             }
         }
         function check_lname() {
-            var pattern = /^[a-zA-Z]*$/;
+            var pattern = /^[a-zA-Z\s]+$/;
             var lname = $("#lastname").val();
             if (pattern.test(lname) && lname !== '') {
             $("#lname_error_message").hide();
@@ -125,7 +135,7 @@ $(function(){
             }
         }
         function check_mname() {
-            var pattern = /^[a-zA-Z]*$/;
+            var pattern = /^[a-zA-Z\s]+$/;
             var age = $("#mname").val();
             if (pattern.test(age) && age !== '') {
             $("#mname_error_message").hide();
@@ -185,6 +195,7 @@ $(function(){
             alert("Verifying, click 'ok' ");
             return true;
             } else {
+                alert("There are mistakes in your inputs");
             return false;
             }
         });

@@ -1,12 +1,12 @@
-Age-additional input *
+Age-additional input *----------------------------DONE
 	Auto compute when set bday
-		below 18 !allowed
+		below 18 !allowed *
 
 PDF export ---------------------------------------DONE
 	fname,lname, mname combine *
 		export dpnding on assigned in task *
 
-excel export
+excel export--------------------------------------ONGOING
 	has heading
 	fname,lname, mname combine
 	export dpnding on assigned in task
@@ -14,8 +14,8 @@ excel export
 contact------------------------------------------DONE
 	max 11 char *
 	
-name
+name------------------------------------------DONE
 	min 2 char *
-	exclude epecial char
+	exclude epecial char*
 		jquery
 

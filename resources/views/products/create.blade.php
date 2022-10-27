@@ -72,7 +72,7 @@
           <label for="bday">Birthday</label>
         </div>
         <div class="col-75">
-          <input type="date" id="myDate" name="bday"  value="" >
+          <input  class="bday" type="text" id="bday" name="bday" value="" >
         </div>
       </div>
       <div class="row">
@@ -80,7 +80,7 @@
         <label for="age">Age</label>
       </div>
       <div class="col-75">
-        <input type="number" id="age" name="age" placeholder="Your age." style="width: 50%" >
+        <input type="number" id="age" name="age" placeholder="Your age." style="width: 50%"  >
         <span class="error_form" id="age_error_message"></span>
       </div>
     </div>
