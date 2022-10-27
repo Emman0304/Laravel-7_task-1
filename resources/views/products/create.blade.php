@@ -32,7 +32,8 @@
         <label for="firstname">First Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="firstname" name="firstname" placeholder="Firstname" minlength="3" maxlength="5">
+        <input type="text" id="firstname" name="firstname" placeholder="Firstname" minlength="3" maxlength="50">
+        <span class="error_form" id="fname_error_message"></span>
       </div>
     </div>
     <div class="row">
@@ -41,6 +42,7 @@
       </div>
       <div class="col-75">
         <input type="text" id="lastname" name="lastname" placeholder="Lastname" minlength="2" maxlength="50" >
+        <span class="error_form" id="lname_error_message"></span>
       </div>
     </div>
     <div class="row">
@@ -49,6 +51,7 @@
         </div>
         <div class="col-75">
           <input type="text" id="mname" name="mname" value="" placeholder="Your middle name.." minlength="1" maxlength="30" >
+          <span class="error_form" id="mname_error_message"></span>
         </div>
     </div>
     <div class="row">
@@ -77,7 +80,8 @@
         <label for="age">Age</label>
       </div>
       <div class="col-75">
-        <input type="text" id="age" name="age" placeholder="Your age." style="width: 50%" >
+        <input type="number" id="age" name="age" placeholder="Your age." style="width: 50%" >
+        <span class="error_form" id="age_error_message"></span>
       </div>
     </div>
     <div class="row">
@@ -94,7 +98,7 @@
           <label for="bplace">Contact</label>
         </div>
         <div class="col-75">
-          <input type="number" id="contact" name="contact" placeholder="09xxxxxxxx" maxlength="11" >
+          <input type="number" id="contact" name="contact" placeholder="09xxxxxxxx" minlength="11" maxlength="11" >
         </div>
     </div>
     <div class="row">
@@ -111,6 +115,7 @@
         </div>
         <div class="col-75">
           <input type="text" id="email" name="email" placeholder="Your email">
+          <span class="error_form" id="email_error_message"></span>
         </div>
     </div><br>
   

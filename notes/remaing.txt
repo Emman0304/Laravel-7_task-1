@@ -1,5 +1,6 @@
 Age-additional input *
 	Auto compute when set bday
+		below 18 !allowed
 
 PDF export ---------------------------------------DONE
 	fname,lname, mname combine *

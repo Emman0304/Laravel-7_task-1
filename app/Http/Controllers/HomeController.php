@@ -7,7 +7,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Imports\UsersImport;
 use App\Exports\UsersExport;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\Excel; 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;

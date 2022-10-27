@@ -33,6 +33,7 @@
       </div>
       <div class="col-75">
         <input type="text" id="firstname" name="firstname" value="{{$student->firstname}}" placeholder="Firstname" minlength="3" maxlength="50" >
+        <span class="error_form" id="fname_error_message"></span>
       </div>
     </div>
     <div class="row">
@@ -41,6 +42,7 @@
       </div>
       <div class="col-75">
         <input type="text" id="lastname" name="lastname" value="{{$student->lastname}}" placeholder="Lastname" minlength="2" maxlength="50" >
+        <span class="error_form" id="lname_error_message"></span>
       </div>
     </div>
     <div class="row">
@@ -49,6 +51,7 @@
         </div>
         <div class="col-75">
           <input type="text" id="mname" name="mname" value="{{$student->mname}}" placeholder="Your middle name.." minlength="1" maxlength="30" >
+          <span class="error_form" id="mname_error_message"></span>
         </div>
     </div>
     <div class="row">
@@ -77,7 +80,8 @@
           <label for="age">Age</label>
         </div>
         <div class="col-75">
-          <input type="text" id="age" name="age"  value="{{$student->age}}" style="width: 50%" >
+          <input type="number" id="age" name="age"  value="{{$student->age}}" style="width: 50%" >
+          <span class="error_form" id="age_error_message"></span>
         </div>
       </div>
       
@@ -111,6 +115,7 @@
         </div>
         <div class="col-75">
           <input type="text" id="email" name="email" value="{{$student->email}}" placeholder="Your email">
+          <span class="error_form" id="email_error_message"></span>
         </div>
     </div><br>
     
