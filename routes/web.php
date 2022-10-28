@@ -4,11 +4,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
-// use App\Http\Controllers\PDFexportCon;
-// use App\Http\Controllers\authController;
-// use App\Http\Controllers\tableController;
-// use App\Http\Controllers\ProductsController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,26 +32,14 @@ Route::get('/delete/student/{id}','HomeController@destroy')->name('destroy');
 //post
 Route::post('/update/student/{id}','HomeController@update')->name('update'); 
 Route::post('/destroy','HomeController@destroy')->name('destroy');
-Route::post('/update','HomeController@update')->name('update');
 Route::post('/store','HomeController@store')->name('store');
-
-//HomeController
-Route::post('/register','HomeController@storeSignup')->name('');
-Route::get('/posts','HomeController@login')->name('login');
-Route::post('/posts','HomeController@login')->name('login'); 
 Route::post('students/import','HomeController@import')->name('import');
+
+//get
 Route::get('students/export','HomeController@export')->name('export');
 Route::get('generate-pdf','HomeController@generatePDF')->name('pdf');
 Route::get('/table','HomeController@display')->name('table');
 
-//loginForm-folder
-Route::get('/signup','HomeController@signUp')->name('signup');
-Route::get('/signin','HomeController@signin')->name('signin');
-
-
-
-
-
+//Auth
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

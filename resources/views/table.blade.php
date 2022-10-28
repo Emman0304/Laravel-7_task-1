@@ -56,7 +56,7 @@
         @foreach ($students as $item )
           <?php
             $mi=$item -> mname;
-            if ($mi == "none") {
+            if ($mi == "none" || $mi == "(none)") {
               $mi="";
             }
           ?>

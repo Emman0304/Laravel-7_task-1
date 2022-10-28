@@ -94,10 +94,6 @@ class HomeController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
-    {
-        return view('products.show',compact('product'));
-    }
    
     /**
      * Show the form for editing the specified resource.
@@ -188,37 +184,7 @@ class HomeController extends Controller
             return redirect()->route('index')->with('success','Excel imported successfully');
         
         }
-        public function signUp()
-        {
-            return view('loginForm.signUp');
-        }
-        public function signIn()
-        {
-            return view('loginForm.signin');
-        }
-
-        public function storeSignup(Request $request)
-        {
-
-            $request->validate([
-                'name' => 'required|unique:products',
-                'mname' => 'required',
-                'gender' => 'required',
-                'contact' => 'required|unique:products',
-                'email' => 'required|email|unique:products',
-                'bday' => 'required',
-                'bplace' => 'required',
-                'address' => 'required'
-                
-            ]);
-
-            Product::create($request->all());
-
-            return redirect()->route('signin')
-                            ->with('success','Registered successfully.');
-
-
-        }
+        
         public function generatePDF()
         {
             $students = Product::all();
@@ -228,6 +194,7 @@ class HomeController extends Controller
         public function display (){
 
             $students = Product::all();
+            
 
             return view('table',compact('students'));
         }
