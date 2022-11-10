@@ -171,17 +171,25 @@ class HomeController extends Controller
         public function import(Request $request)  
         {
             // Excel::import(new UsersImport, $request->file);
-            $file=$request->file('file')->store('import');
+            $file=$request->file('file');
 
-            $import=new UsersImport;
-            $import->import($file);
-            // dd($import->failures());
-            
-            if ($import->failures()->isNotEmpty()) {
-                return redirect()->route('index')->withFailures($import->failures());
+            if ($request->hasFile('file')) {
+
+                $file->store('import');
+                
+                $import=new UsersImport;
+                $import->import($file);
+               
+                if ($import->failures()->isNotEmpty()) {
+                    return redirect()->route('index')->withFailures($import->failures());
+                }
+
+                return redirect()->route('index')->with('success','Excel imported successfully');
+            }else{
+                return redirect()->route('index')->with('error','No file selected');
             }
 
-            return redirect()->route('index')->with('success','Excel imported successfully');
+           
         
         }
         

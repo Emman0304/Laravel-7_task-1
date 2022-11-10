@@ -60,6 +60,7 @@
         </div>
         <div class="col-75">
             <select id="gender" name="gender" value="{{$student->gender}}" >
+              <option value="{{$student->gender}}">{{$student->gender}}</option>
               <option value="Other">Other</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>

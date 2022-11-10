@@ -22,31 +22,14 @@
                             {{ __('Logout') }}
                         </a><br><br>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
 
                     <form action="{{route('import')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <!-- <div class="row">
-                            <div class="col-md-6 offset-md-3 ">
-                                <div class="form-group"> -->
-                                    <input type="file" name="file" class="form-control" >
-                                <!-- </div> -->
-                                <button type="submit" class="btn btn-primary" style="margin-top: 3px" >Import Excel File</button>
-                            <!-- </div>
-                        </div> -->
-                        {{-- @if ($validations->any())
-                            <div class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                                <ul>
-                                    @foreach ($validations->all() as $validation)
-                                        <li>{{ $validation }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif --}}
-
+                            <input type="file" name="file" class="form-control" >
+                            <button type="submit" class="btn btn-primary" style="margin-top: 3px" >Import Excel File</button>
                     </form>
 
                 </div>
@@ -57,6 +40,11 @@
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
+    @endif
+    @if ($message = Session::get('error'))
+    <div class="alert alert-danger">
+        <p>{{ $message }}</p>
+    </div>
     @endif
     @if (session()->has('failures'))
         <table class="table table-danger" > 
